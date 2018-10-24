@@ -38,8 +38,10 @@ def render_ctof_result():
 @app.route('/mtokm_result')
 def render_mtokm_result():
     try:
+        miles_result = float(request.args['miles'])
+        kilometers_result = mtoKm(miles_result)
         # You'll need some code here, and maybe some extra parameters in render_template below...
-        return render_template('mtokm.html')
+        return render_template('mtokm.html', miles=miles_result,kilometers=kilometers_result)
     except ValueError:
         return "Sorry: something went wrong."
 
